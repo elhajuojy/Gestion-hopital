@@ -31,6 +31,12 @@ namespace Gestion_hopital
 
         }
 
-        
+        private void gestionDesPatinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gestion_des_patients formGesPa = new gestion_des_patients();
+            formGesPa.MdiParent = this;
+            formGesPa.Dock = DockStyle.Fill;
+            formGesPa.Show();
+        }
     }
 }

@@ -77,6 +77,7 @@
             this.gestionDesPatinToolStripMenuItem.Name = "gestionDesPatinToolStripMenuItem";
             this.gestionDesPatinToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
             this.gestionDesPatinToolStripMenuItem.Text = "Gestion des patients";
+            this.gestionDesPatinToolStripMenuItem.Click += new System.EventHandler(this.gestionDesPatinToolStripMenuItem_Click);
             // 
             // gestionDesRDVToolStripMenuItem
             // 

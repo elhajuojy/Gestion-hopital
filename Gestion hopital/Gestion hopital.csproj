@@ -60,6 +60,12 @@
     <Compile Include="Gestion des Medecins.Designer.cs">
       <DependentUpon>Gestion des Medecins.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion des patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion des patients.Designer.cs">
+      <DependentUpon>gestion des patients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormPrinicpal.resx">
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gestion des Medecins.resx">
       <DependentUpon>Gestion des Medecins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gestion des patients.resx">
+      <DependentUpon>gestion des patients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

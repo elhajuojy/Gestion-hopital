@@ -1,6 +1,6 @@
 ﻿namespace Gestion_hopital
 {
-    partial class FormPrinicpal
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.

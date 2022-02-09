@@ -16,7 +16,7 @@ namespace Gestion_hopital
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormPrinicpal());
+            Application.Run(new Form1());
         }
     }
 }

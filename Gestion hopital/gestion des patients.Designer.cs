@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioF = new System.Windows.Forms.RadioButton();
+            this.radioM = new System.Windows.Forms.RadioButton();
+            this.textAdresse = new System.Windows.Forms.RichTextBox();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textAdresse = new System.Windows.Forms.RichTextBox();
-            this.radioM = new System.Windows.Forms.RadioButton();
-            this.radioF = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,37 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion des patients";
+            // 
+            // radioF
+            // 
+            this.radioF.AutoSize = true;
+            this.radioF.Location = new System.Drawing.Point(364, 311);
+            this.radioF.Name = "radioF";
+            this.radioF.Size = new System.Drawing.Size(43, 34);
+            this.radioF.TabIndex = 21;
+            this.radioF.TabStop = true;
+            this.radioF.Text = "F";
+            this.radioF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioF.UseVisualStyleBackColor = true;
+            // 
+            // radioM
+            // 
+            this.radioM.AutoSize = true;
+            this.radioM.Location = new System.Drawing.Point(221, 311);
+            this.radioM.Name = "radioM";
+            this.radioM.Size = new System.Drawing.Size(49, 34);
+            this.radioM.TabIndex = 20;
+            this.radioM.TabStop = true;
+            this.radioM.Text = "M";
+            this.radioM.UseVisualStyleBackColor = true;
+            // 
+            // textAdresse
+            // 
+            this.textAdresse.Location = new System.Drawing.Point(221, 157);
+            this.textAdresse.Name = "textAdresse";
+            this.textAdresse.Size = new System.Drawing.Size(225, 96);
+            this.textAdresse.TabIndex = 19;
+            this.textAdresse.Text = "";
             // 
             // btnQuitter
             // 
@@ -111,6 +142,7 @@
             this.btnAjouter.TabIndex = 15;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnRecherche
             // 
@@ -198,37 +230,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Code";
             // 
-            // textAdresse
-            // 
-            this.textAdresse.Location = new System.Drawing.Point(221, 157);
-            this.textAdresse.Name = "textAdresse";
-            this.textAdresse.Size = new System.Drawing.Size(225, 96);
-            this.textAdresse.TabIndex = 19;
-            this.textAdresse.Text = "";
-            // 
-            // radioM
-            // 
-            this.radioM.AutoSize = true;
-            this.radioM.Location = new System.Drawing.Point(221, 311);
-            this.radioM.Name = "radioM";
-            this.radioM.Size = new System.Drawing.Size(49, 34);
-            this.radioM.TabIndex = 20;
-            this.radioM.TabStop = true;
-            this.radioM.Text = "M";
-            this.radioM.UseVisualStyleBackColor = true;
-            // 
-            // radioF
-            // 
-            this.radioF.AutoSize = true;
-            this.radioF.Location = new System.Drawing.Point(364, 311);
-            this.radioF.Name = "radioF";
-            this.radioF.Size = new System.Drawing.Size(43, 34);
-            this.radioF.TabIndex = 21;
-            this.radioF.TabStop = true;
-            this.radioF.Text = "F";
-            this.radioF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioF.UseVisualStyleBackColor = true;
-            // 
             // gestion_des_patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,6 +239,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "gestion_des_patients";
             this.Text = "gestion_des_patients";
+            this.Load += new System.EventHandler(this.gestion_des_patients_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace Gestion_hopital
 {
-    public partial class FormPrinicpal : Form
+    public partial class Form1 : Form
     {
-        public FormPrinicpal()
+        public Form1()
         {
             InitializeComponent();
         }

@@ -46,11 +46,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPreviows = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLast);
+            this.groupBox1.Controls.Add(this.btnNext);
+            this.groupBox1.Controls.Add(this.btnPreviows);
+            this.groupBox1.Controls.Add(this.btnFirst);
             this.groupBox1.Controls.Add(this.radioF);
             this.groupBox1.Controls.Add(this.radioM);
             this.groupBox1.Controls.Add(this.textAdresse);
@@ -230,6 +238,42 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Code";
             // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(597, 375);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(85, 33);
+            this.btnLast.TabIndex = 27;
+            this.btnLast.Text = "Last";
+            this.btnLast.UseVisualStyleBackColor = true;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(452, 375);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(85, 33);
+            this.btnNext.TabIndex = 26;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPreviows
+            // 
+            this.btnPreviows.Location = new System.Drawing.Point(307, 375);
+            this.btnPreviows.Name = "btnPreviows";
+            this.btnPreviows.Size = new System.Drawing.Size(100, 33);
+            this.btnPreviows.TabIndex = 25;
+            this.btnPreviows.Text = "Previows";
+            this.btnPreviows.UseVisualStyleBackColor = true;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(162, 375);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(85, 33);
+            this.btnFirst.TabIndex = 24;
+            this.btnFirst.Text = "first";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            // 
             // gestion_des_patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -266,5 +310,9 @@
         private System.Windows.Forms.RadioButton radioF;
         private System.Windows.Forms.RadioButton radioM;
         private System.Windows.Forms.RichTextBox textAdresse;
+        private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnPreviows;
+        private System.Windows.Forms.Button btnFirst;
     }
 }

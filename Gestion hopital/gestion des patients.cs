@@ -20,6 +20,13 @@ namespace Gestion_hopital
         }
         string CtnGestionFrom = ConfigurationManager.ConnectionStrings["GesHopitalCtn"].ConnectionString;
         SqlConnection ctn = new SqlConnection();
+        SqlCommand cmd;
+        SqlDataAdapter adapter ;
+        DataTable dt = new DataTable();
+        DataSet ds;
+        SqlCommandBuilder bldr ;
+        BindingSource bs = new BindingSource();
+        
         private void btnNouveau_Click(object sender, EventArgs e)
         {
             textNOm.Text = string.Empty;
@@ -31,64 +38,227 @@ namespace Gestion_hopital
 
         }
 
-        private void btnRecherche_Click(object sender, EventArgs e)
+        private int find(string code)
         {
-            string codepa = textcode.Text;
-            
+            int index = -1;
 
-            SqlCommand cmd = new SqlCommand("select * from patient where codepatient = @code", ctn);
-
-            cmd.Parameters.AddWithValue("@code", codepa);
-
-
-            ctn.Open();
-            SqlDataReader reader = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(reader);
-            ctn.Close();
-
-            textNOm.Text = dt.Rows[0][1].ToString();
-            textAdresse.Text = dt.Rows[0][2].ToString();
-            dateNais.Value = DateTime.Parse(dt.Rows[0][3].ToString());
-            if (dt.Rows[0][4].ToString() == "M")
+            for(int i = 0; i < dt.Rows.Count; i++)
             {
-                radioM.Checked = true;
+                if (dt.Rows[i][0].ToString() == code)
+                {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
+        private void fill(int index)
+        {
+            textcode.Text = dt.Rows[index][0].ToString();
+            textNOm.Text = dt.Rows[index][1].ToString();
+            textAdresse.Text= dt.Rows[index][2].ToString();
+            dateNais.Value = DateTime.Parse(dt.Rows[index][3].ToString());
+
+            if(dt.Rows[index][4].ToString() == "M")
+            {
+                radioM.Checked=true;
             }
             else
             {
-                radioF.Checked = true;
+                radioF.Checked=true;
             }
+
+        }
+
+
+
+        private void btnRecherche_Click(object sender, EventArgs e)
+        {
+
+            string code = textcode.Text;
+
+            int index = find(code);
+
+            if(index == -1)
+            {
+                MessageBox.Show(" non !!");
+            }
+            else
+            {
+                fill(index);
+            }
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string codepa = textcode.Text;
+            
+
+            //SqlCommand cmd = new SqlCommand("select * from patient where codepatient = @code", ctn);
+
+            //cmd.Parameters.AddWithValue("@code", codepa);
+
+
+            //ctn.Open();
+            //SqlDataReader reader = cmd.ExecuteReader();
+            //DataTable dt = new DataTable();
+            //dt.Load(reader);
+            //ctn.Close();
+
+            //textNOm.Text = dt.Rows[0][1].ToString();
+            //textAdresse.Text = dt.Rows[0][2].ToString();
+            //dateNais.Value = DateTime.Parse(dt.Rows[0][3].ToString());
+            //if (dt.Rows[0][4].ToString() == "M")
+            //{
+            //    radioM.Checked = true;
+            //}
+            //else
+            //{
+            //    radioF.Checked = true;
+            //}
 
         }
 
         private void gestion_des_patients_Load(object sender, EventArgs e)
         {
             ctn.ConnectionString = CtnGestionFrom;
+            cmd = new SqlCommand("select * from patient", ctn);
+            adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(dt);
+            bs.DataSource = dt;
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            string codeMed = textcode.Text;
-            string TelMed = textAdresse.Text;
-            string Nom = textNOm.Text;
-            DateTime datenais = dateNais.Value;
+            string sexe;
+
+            if (radioF.Checked == true)
+            {
+                sexe = "F";
+            }
+            else
+            {
+                sexe = "M";
+            }
+
+            DataRow newRow = dt.NewRow();
+            newRow[0] = textcode.Text;
+            newRow[1] = textNOm.Text;
+            newRow[2]= textAdresse.Text;
+            newRow[3]= dateNais.Value;
+            newRow[4] = sexe;
+
+            dt.Rows.Add(newRow);
+
+
+
+
+            bldr = new SqlCommandBuilder(adapter);
+            adapter.Update(dt);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string codepa = textcode.Text;
+            //string adresse = textAdresse.Text;
+            //string Nom = textNOm.Text;
+            //DateTime datenais = dateNais.Value;
+            //string sexe;
+
+            //if (radioF.Checked==true)
+            //{
+            //    sexe = "F";
+            //}
+            //else
+            //{
+            //    sexe = "M";
+            //}
+
+
+
+
+
+            //SqlCommand cmd = new SqlCommand("insert into patient values(@code,@nom,@Adresse,@DateNias,@sexe) ", ctn);
+            //cmd.Parameters.AddWithValue("@code", codepa);
+            //cmd.Parameters.AddWithValue("@nom", Nom);
+            //cmd.Parameters.AddWithValue("@Adresse", adresse);
+            //cmd.Parameters.AddWithValue("@DateNias", datenais);
+            //cmd.Parameters.AddWithValue("@sexe",sexe);  
             
 
-
-
-
-
-            SqlCommand cmd = new SqlCommand("insert into medecin values(@code,@nom,@tel,@DateEmb,@specialite) ", ctn);
-            cmd.Parameters.AddWithValue("@code", codeMed);
-            cmd.Parameters.AddWithValue("@nom", Nom);
-            cmd.Parameters.AddWithValue("@tel", TelMed);
-            cmd.Parameters.AddWithValue("@DateEmb", DateEmb);
-            cmd.Parameters.AddWithValue("@specialite", cbSp);
-
-            ctn.Open();
-            int rowsEffected = cmd.ExecuteNonQuery();
-            ctn.Close();
-            MessageBox.Show("Bien Ajouter", "Done");
+            //ctn.Open();
+            //int rowsEffected = cmd.ExecuteNonQuery();
+            //ctn.Close();
+            //MessageBox.Show("Bien Ajouter", "Done");
 
 
         }

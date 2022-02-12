@@ -84,6 +84,7 @@
             this.gestionDesRDVToolStripMenuItem.Name = "gestionDesRDVToolStripMenuItem";
             this.gestionDesRDVToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
             this.gestionDesRDVToolStripMenuItem.Text = "Gestion Des RDV";
+            this.gestionDesRDVToolStripMenuItem.Click += new System.EventHandler(this.gestionDesRDVToolStripMenuItem_Click);
             // 
             // conToolStripMenuItem
             // 

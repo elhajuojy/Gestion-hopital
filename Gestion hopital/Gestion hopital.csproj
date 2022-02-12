@@ -33,10 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,8 +75,38 @@
     <Compile Include="gestion des patients.Designer.cs">
       <DependentUpon>gestion des patients.cs</DependentUpon>
     </Compile>
+    <Compile Include="gestion des rendez-vous.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gestion des rendez-vous.Designer.cs">
+      <DependentUpon>gestion des rendez-vous.cs</DependentUpon>
+    </Compile>
+    <Compile Include="hopitalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hopitalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hopitalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hopitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hopitalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hopitalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="medecin.cs">
+      <DependentUpon>hopitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="patient.cs">
+      <DependentUpon>hopitalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RDV.cs">
+      <DependentUpon>hopitalModel.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="gestion des patients.resx">
       <DependentUpon>gestion des patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gestion des rendez-vous.resx">
+      <DependentUpon>gestion des rendez-vous.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,6 +128,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="hopitalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>hopitalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="hopitalModel.edmx.diagram">
+      <DependentUpon>hopitalModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +148,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hopitalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>hopitalModel.Context.cs</LastGenOutput>
+      <DependentUpon>hopitalModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="hopitalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>hopitalModel.edmx</DependentUpon>
+      <LastGenOutput>hopitalModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -48,5 +48,13 @@ namespace Gestion_hopital
         {
 
         }
+
+        private void gestionDesRDVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gestion_des_rendez_vous formGest_RDV = new gestion_des_rendez_vous();
+            formGest_RDV.MdiParent = this;
+            formGest_RDV.Dock = DockStyle.Fill;
+            formGest_RDV.Show();
+        }
     }
 }

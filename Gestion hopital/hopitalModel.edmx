@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Gest_RDVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="medecin">
+          <Key>
+            <PropertyRef Name="codemedcin" />
+          </Key>
+          <Property Name="codemedcin" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nommedecin" Type="varchar" MaxLength="50" />
+          <Property Name="telmedecin" Type="varchar" MaxLength="50" />
+          <Property Name="dateEmbauche" Type="date" />
+          <Property Name="specialitemedecin" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="codepatient" />
+          </Key>
+          <Property Name="codepatient" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nompatient" Type="varchar" MaxLength="50" />
+          <Property Name="adressepatient" Type="varchar" MaxLength="50" />
+          <Property Name="datenaissance" Type="date" />
+          <Property Name="sexepatient" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RDV">
+          <Key>
+            <PropertyRef Name="numeroRDV" />
+          </Key>
+          <Property Name="numeroRDV" Type="int" Nullable="false" />
+          <Property Name="dateRDV" Type="date" />
+          <Property Name="heureRDV" Type="varchar" MaxLength="50" />
+          <Property Name="codemedcin" Type="varchar" MaxLength="50" />
+          <Property Name="codepatient" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__RDV__codemedcin__286302EC">
+          <End Role="medecin" Type="Self.medecin" Multiplicity="0..1" />
+          <End Role="RDV" Type="Self.RDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medecin">
+              <PropertyRef Name="codemedcin" />
+            </Principal>
+            <Dependent Role="RDV">
+              <PropertyRef Name="codemedcin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RDV__codepatient__29572725">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="RDV" Type="Self.RDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="codepatient" />
+            </Principal>
+            <Dependent Role="RDV">
+              <PropertyRef Name="codepatient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gest_RDVModelStoreContainer">
+          <EntitySet Name="medecin" EntityType="Self.medecin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patient" EntityType="Self.patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RDV" EntityType="Self.RDV" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__RDV__codemedcin__286302EC" Association="Self.FK__RDV__codemedcin__286302EC">
+            <End Role="medecin" EntitySet="medecin" />
+            <End Role="RDV" EntitySet="RDV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RDV__codepatient__29572725" Association="Self.FK__RDV__codepatient__29572725">
+            <End Role="patient" EntitySet="patient" />
+            <End Role="RDV" EntitySet="RDV" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Gest_RDVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="medecin">
+          <Key>
+            <PropertyRef Name="codemedcin" />
+          </Key>
+          <Property Name="codemedcin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nommedecin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telmedecin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateEmbauche" Type="DateTime" Precision="0" />
+          <Property Name="specialitemedecin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RDVs" Relationship="Self.FK__RDV__codemedcin__286302EC" FromRole="medecin" ToRole="RDV" />
+        </EntityType>
+        <EntityType Name="patient">
+          <Key>
+            <PropertyRef Name="codepatient" />
+          </Key>
+          <Property Name="codepatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nompatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adressepatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="datenaissance" Type="DateTime" Precision="0" />
+          <Property Name="sexepatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RDVs" Relationship="Self.FK__RDV__codepatient__29572725" FromRole="patient" ToRole="RDV" />
+        </EntityType>
+        <EntityType Name="RDV">
+          <Key>
+            <PropertyRef Name="numeroRDV" />
+          </Key>
+          <Property Name="numeroRDV" Type="Int32" Nullable="false" />
+          <Property Name="dateRDV" Type="DateTime" Precision="0" />
+          <Property Name="heureRDV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codemedcin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="codepatient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="medecin" Relationship="Self.FK__RDV__codemedcin__286302EC" FromRole="RDV" ToRole="medecin" />
+          <NavigationProperty Name="patient" Relationship="Self.FK__RDV__codepatient__29572725" FromRole="RDV" ToRole="patient" />
+        </EntityType>
+        <Association Name="FK__RDV__codemedcin__286302EC">
+          <End Role="medecin" Type="Self.medecin" Multiplicity="0..1" />
+          <End Role="RDV" Type="Self.RDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medecin">
+              <PropertyRef Name="codemedcin" />
+            </Principal>
+            <Dependent Role="RDV">
+              <PropertyRef Name="codemedcin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RDV__codepatient__29572725">
+          <End Role="patient" Type="Self.patient" Multiplicity="0..1" />
+          <End Role="RDV" Type="Self.RDV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patient">
+              <PropertyRef Name="codepatient" />
+            </Principal>
+            <Dependent Role="RDV">
+              <PropertyRef Name="codepatient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Gest_RDVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="medecins" EntityType="Self.medecin" />
+          <EntitySet Name="patients" EntityType="Self.patient" />
+          <EntitySet Name="RDVs" EntityType="Self.RDV" />
+          <AssociationSet Name="FK__RDV__codemedcin__286302EC" Association="Self.FK__RDV__codemedcin__286302EC">
+            <End Role="medecin" EntitySet="medecins" />
+            <End Role="RDV" EntitySet="RDVs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RDV__codepatient__29572725" Association="Self.FK__RDV__codepatient__29572725">
+            <End Role="patient" EntitySet="patients" />
+            <End Role="RDV" EntitySet="RDVs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Gest_RDVModelStoreContainer" CdmEntityContainer="Gest_RDVEntities">
+          <EntitySetMapping Name="medecins">
+            <EntityTypeMapping TypeName="Gest_RDVModel.medecin">
+              <MappingFragment StoreEntitySet="medecin">
+                <ScalarProperty Name="codemedcin" ColumnName="codemedcin" />
+                <ScalarProperty Name="nommedecin" ColumnName="nommedecin" />
+                <ScalarProperty Name="telmedecin" ColumnName="telmedecin" />
+                <ScalarProperty Name="dateEmbauche" ColumnName="dateEmbauche" />
+                <ScalarProperty Name="specialitemedecin" ColumnName="specialitemedecin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="Gest_RDVModel.patient">
+              <MappingFragment StoreEntitySet="patient">
+                <ScalarProperty Name="codepatient" ColumnName="codepatient" />
+                <ScalarProperty Name="nompatient" ColumnName="nompatient" />
+                <ScalarProperty Name="adressepatient" ColumnName="adressepatient" />
+                <ScalarProperty Name="datenaissance" ColumnName="datenaissance" />
+                <ScalarProperty Name="sexepatient" ColumnName="sexepatient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RDVs">
+            <EntityTypeMapping TypeName="Gest_RDVModel.RDV">
+              <MappingFragment StoreEntitySet="RDV">
+                <ScalarProperty Name="numeroRDV" ColumnName="numeroRDV" />
+                <ScalarProperty Name="dateRDV" ColumnName="dateRDV" />
+                <ScalarProperty Name="heureRDV" ColumnName="heureRDV" />
+                <ScalarProperty Name="codemedcin" ColumnName="codemedcin" />
+                <ScalarProperty Name="codepatient" ColumnName="codepatient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

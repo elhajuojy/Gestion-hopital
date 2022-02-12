@@ -102,6 +102,7 @@
             this.afficherTouotToolStripMenuItem.Name = "afficherTouotToolStripMenuItem";
             this.afficherTouotToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
             this.afficherTouotToolStripMenuItem.Text = "Afficher tout";
+            this.afficherTouotToolStripMenuItem.Click += new System.EventHandler(this.afficherTouotToolStripMenuItem_Click);
             // 
             // rechercheRDVParDateToolStripMenuItem
             // 

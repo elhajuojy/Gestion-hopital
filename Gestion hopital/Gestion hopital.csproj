@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfficherToutFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfficherToutFrm.Designer.cs">
+      <DependentUpon>AfficherToutFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     <Compile Include="RDV.cs">
       <DependentUpon>hopitalModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AfficherToutFrm.resx">
+      <DependentUpon>AfficherToutFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

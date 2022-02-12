@@ -56,5 +56,13 @@ namespace Gestion_hopital
             formGest_RDV.Dock = DockStyle.Fill;
             formGest_RDV.Show();
         }
+
+        private void afficherTouotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AfficherToutFrm AiffcherToutFrm = new AfficherToutFrm();
+            AiffcherToutFrm.MdiParent = this;
+            AiffcherToutFrm.Dock = DockStyle.Fill;
+            AiffcherToutFrm.Show();
+        }
     }
 }

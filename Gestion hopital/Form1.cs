@@ -64,5 +64,13 @@ namespace Gestion_hopital
             AiffcherToutFrm.Dock = DockStyle.Fill;
             AiffcherToutFrm.Show();
         }
+
+        private void rechercheRDVParDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RechercheRDvFrm RechercheRDVFrm = new RechercheRDvFrm();
+            RechercheRDVFrm.MdiParent = this;
+            RechercheRDVFrm.Dock = DockStyle.Fill;
+            RechercheRDVFrm.Show();
+        }
     }
 }

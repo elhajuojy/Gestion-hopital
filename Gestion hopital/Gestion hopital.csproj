@@ -113,6 +113,12 @@
     <Compile Include="RDV.cs">
       <DependentUpon>hopitalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RechercheRDvFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RechercheRDvFrm.Designer.cs">
+      <DependentUpon>RechercheRDvFrm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AfficherToutFrm.resx">
       <DependentUpon>AfficherToutFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +143,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RechercheRDvFrm.resx">
+      <DependentUpon>RechercheRDvFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="hopitalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>hopitalModel.Designer.cs</LastGenOutput>

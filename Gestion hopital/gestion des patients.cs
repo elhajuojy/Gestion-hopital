@@ -23,7 +23,7 @@ namespace Gestion_hopital
         SqlCommand cmd;
         SqlDataAdapter adapter ;
         DataTable dt = new DataTable();
-        DataSet ds;
+
         SqlCommandBuilder bldr ;
         BindingSource bs = new BindingSource();
         
@@ -75,20 +75,75 @@ namespace Gestion_hopital
 
         private void btnRecherche_Click(object sender, EventArgs e)
         {
+            cmd = new SqlCommand("select * from patient where codepatient = '" + textcode.Text + "'", ctn);
 
-            string code = textcode.Text;
-
-            int index = find(code);
-
-            if(index == -1)
+            ctn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                MessageBox.Show(" non !!");
+                textNOm.Text = reader[1].ToString();
+                textAdresse.Text = reader[2].ToString();
+                dateNais.Value = DateTime.Parse(reader[3].ToString());
+                if (reader[4].ToString() == "M")
+                {
+                    radioM.Checked = true;
+                }
+                else
+                {
+                    radioF.Checked = true;
+                }
             }
-            else
-            {
-                fill(index);
-            }
-           
+            ctn.Close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //string code = textcode.Text;
+
+            //int index = find(code);
+
+            //if(index == -1)
+            //{
+            //    MessageBox.Show(" non !!");
+            //}
+            //else
+            //{
+            //    fill(index);
+            //}
+
 
 
 
@@ -110,7 +165,7 @@ namespace Gestion_hopital
 
 
             //string codepa = textcode.Text;
-            
+
 
             //SqlCommand cmd = new SqlCommand("select * from patient where codepatient = @code", ctn);
 

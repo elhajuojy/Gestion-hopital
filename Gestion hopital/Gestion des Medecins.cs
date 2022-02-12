@@ -318,9 +318,6 @@ namespace Gestion_hopital
         private void btnUpdateDataBase_Click(object sender, EventArgs e)
         {
             builder = new SqlCommandBuilder(adapter);
-            //builder.GetUpdateCommand();
-            //builder.GetInsertCommand();
-            //builder.GetDeleteCommand();
             
             adapter.Update(dt);
 

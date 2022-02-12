@@ -119,6 +119,7 @@ namespace Gestion_hopital
             // 
             // cbCodePatient
             // 
+            this.cbCodePatient.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cbCodePatient.FormattingEnabled = true;
             this.cbCodePatient.Location = new System.Drawing.Point(125, 17);
             this.cbCodePatient.Name = "cbCodePatient";
@@ -128,6 +129,7 @@ namespace Gestion_hopital
             // 
             // textNomPatient
             // 
+            this.textNomPatient.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.textNomPatient.Location = new System.Drawing.Point(125, 68);
             this.textNomPatient.Name = "textNomPatient";
             this.textNomPatient.Size = new System.Drawing.Size(190, 29);
@@ -136,6 +138,7 @@ namespace Gestion_hopital
             // radioM
             // 
             this.radioM.AutoSize = true;
+            this.radioM.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.radioM.Location = new System.Drawing.Point(125, 124);
             this.radioM.Name = "radioM";
             this.radioM.Size = new System.Drawing.Size(46, 30);
@@ -147,6 +150,7 @@ namespace Gestion_hopital
             // radioF
             // 
             this.radioF.AutoSize = true;
+            this.radioF.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.radioF.Location = new System.Drawing.Point(216, 124);
             this.radioF.Name = "radioF";
             this.radioF.Size = new System.Drawing.Size(41, 30);
@@ -172,6 +176,7 @@ namespace Gestion_hopital
             // 
             // textNomMedecin
             // 
+            this.textNomMedecin.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.textNomMedecin.Location = new System.Drawing.Point(177, 68);
             this.textNomMedecin.Name = "textNomMedecin";
             this.textNomMedecin.Size = new System.Drawing.Size(190, 29);
@@ -179,11 +184,13 @@ namespace Gestion_hopital
             // 
             // cbCodeMedecin
             // 
+            this.cbCodeMedecin.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cbCodeMedecin.FormattingEnabled = true;
             this.cbCodeMedecin.Location = new System.Drawing.Point(177, 17);
             this.cbCodeMedecin.Name = "cbCodeMedecin";
             this.cbCodeMedecin.Size = new System.Drawing.Size(190, 34);
             this.cbCodeMedecin.TabIndex = 3;
+            this.cbCodeMedecin.SelectionChangeCommitted += new System.EventHandler(this.cbCodeMedecin_SelectionChangeCommitted);
             // 
             // label4
             // 
@@ -214,6 +221,7 @@ namespace Gestion_hopital
             // 
             // textspecialiteMedecin
             // 
+            this.textspecialiteMedecin.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.textspecialiteMedecin.Location = new System.Drawing.Point(177, 121);
             this.textspecialiteMedecin.Name = "textspecialiteMedecin";
             this.textspecialiteMedecin.Size = new System.Drawing.Size(190, 29);
@@ -274,6 +282,7 @@ namespace Gestion_hopital
             this.btnAjouterRDV.TabIndex = 8;
             this.btnAjouterRDV.Text = "Ajouter RDV";
             this.btnAjouterRDV.UseVisualStyleBackColor = true;
+            this.btnAjouterRDV.Click += new System.EventHandler(this.btnAjouterRDV_Click);
             // 
             // btnNouveau
             // 
@@ -283,6 +292,7 @@ namespace Gestion_hopital
             this.btnNouveau.TabIndex = 9;
             this.btnNouveau.Text = "Nouveau";
             this.btnNouveau.UseVisualStyleBackColor = true;
+            this.btnNouveau.Click += new System.EventHandler(this.btnNouveau_Click);
             // 
             // btnQuitter
             // 
@@ -292,6 +302,7 @@ namespace Gestion_hopital
             this.btnQuitter.TabIndex = 10;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // gestion_des_rendez_vous
             // 

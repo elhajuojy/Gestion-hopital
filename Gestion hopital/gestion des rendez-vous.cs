@@ -52,5 +52,47 @@ namespace Gestion_hopital
 
             }
         }
+
+        private void cbCodeMedecin_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var req = db.medecins.Where(m => m.codemedcin == cbCodeMedecin.SelectedItem.ToString());
+            foreach(var m in req)
+            {
+                textNomMedecin.Text = m.nommedecin;
+                textspecialiteMedecin.Text = m.specialitemedecin;
+            }
+        }
+
+        private void btnNouveau_Click(object sender, EventArgs e)
+        {
+            textHeureRDV.Text = string.Empty;
+            textNomMedecin.Text = string.Empty;
+            textNomPatient.Text = string.Empty;
+            radioF.Checked = false;
+            radioM.Checked = false;
+            DateRDV.Value = DateTime.Now;
+            textspecialiteMedecin.Text = string.Empty;
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAjouterRDV_Click(object sender, EventArgs e)
+        {
+            int max = (from n in db.RDVs
+                       select n.numeroRDV).Max();
+
+
+            RDV rdv = new RDV();
+            rdv.numeroRDV = max+1;
+            rdv.codemedcin = cbCodeMedecin.SelectedItem.ToString();
+            rdv.codepatient = cbCodePatient.SelectedItem.ToString();
+            rdv.dateRDV = DateRDV.Value;
+            rdv.heureRDV = textHeureRDV.Text;
+            db.RDVs.Add(rdv);
+            db.SaveChanges();
+        }
     }
 }

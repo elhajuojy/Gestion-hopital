@@ -32,9 +32,9 @@ namespace Gestion_hopital
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var req = from rdv in db.RDVs
-                      where rdv.dateRDV.Equals(textdate.Text)
-                      select rdv;
+            var req = from p in db.RDVs
+                      where p.dateRDV ==DateTime.Parse(textdate.Text)
+                      select p;
             dgv.DataSource = null;
             dgv.DataSource = req.ToList();
 

@@ -100,22 +100,20 @@ namespace Gestion_hopital
         private void btnRecherche_Click(object sender, EventArgs e)
         {
 
-            dt.DefaultView.Sort="codemedcin ASC";
+            //dt.DefaultView.Sort="codemedcin ASC";
 
-            int index = dt.DefaultView.Find(textcode.Text);
-            if (index == -1)
-            {
-                MessageBox.Show("no one has been find ");
-            }
-            else
-            {
-                textNOm.Text=dt.Rows[index][1].ToString();
-                textTel.Text=dt.Rows[index][2].ToString();
-                dateEmb.Value = DateTime.Parse(dt.Rows[index][3].ToString());
-                CbSpecialite.Text=dt.Rows[index][4].ToString();
-            }
-
-
+            //int index = dt.DefaultView.Find(textcode.Text);
+            //if (index == -1)
+            //{
+            //    MessageBox.Show("no one has been find ");
+            //}
+            //else
+            //{
+            //    textNOm.Text=dt.Rows[index][1].ToString();
+            //    textTel.Text=dt.Rows[index][2].ToString();
+            //    dateEmb.Value = DateTime.Parse(dt.Rows[index][3].ToString());
+            //    CbSpecialite.Text=dt.Rows[index][4].ToString();
+            //}
 
 
 
@@ -145,25 +143,27 @@ namespace Gestion_hopital
 
 
 
-            //string codeMed = textcode.Text;
-            //string textTelMed = textTel.Text;
-            //string Nom = textNOm.Text;
-            //DateTime DateEmb = dateEmb.Value;
-            //string cbSp = CbSpecialite.SelectedItem.ToString();
 
-            //SqlCommand cmd = new SqlCommand("select * from medecin where codemedcin = @code", ctn);
-            
-            //cmd.Parameters.AddWithValue("@code",codeMed);
-            //ctn.Open();
-            //SqlDataReader reader = cmd.ExecuteReader();
-            //DataTable dt = new DataTable();
-            //dt.Load(reader);
-            //ctn.Close();
 
-            //textNOm.Text=dt.Rows[0][1].ToString();
-            //textTel.Text = dt.Rows[0][2].ToString();
-            //dateEmb.Value=DateTime.Parse( dt.Rows[0][3].ToString());
-            //CbSpecialite.Text = dt.Rows[0][4].ToString();
+            string codeMed = textcode.Text;
+            string textTelMed = textTel.Text;
+            string Nom = textNOm.Text;
+            DateTime DateEmb = dateEmb.Value;
+            string cbSp = CbSpecialite.SelectedItem.ToString();
+
+            SqlCommand cmd = new SqlCommand("select * from medecin where codemedcin = @code", ctn);
+
+            cmd.Parameters.AddWithValue("@code", codeMed);
+            ctn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            ctn.Close();
+
+            textNOm.Text = dt.Rows[0][1].ToString();
+            textTel.Text = dt.Rows[0][2].ToString();
+            dateEmb.Value = DateTime.Parse(dt.Rows[0][3].ToString());
+            CbSpecialite.Text = dt.Rows[0][4].ToString();
 
 
 

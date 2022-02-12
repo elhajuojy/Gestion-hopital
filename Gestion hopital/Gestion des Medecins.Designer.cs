@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLast = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPreviows = new System.Windows.Forms.Button();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.btnUpdateDataBase = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
@@ -46,10 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnPreviows = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnLast = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +84,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gestion des medecins";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // btnLast
+            // 
+            this.btnLast.Location = new System.Drawing.Point(559, 374);
+            this.btnLast.Name = "btnLast";
+            this.btnLast.Size = new System.Drawing.Size(85, 33);
+            this.btnLast.TabIndex = 23;
+            this.btnLast.Text = "Last";
+            this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(414, 374);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(85, 33);
+            this.btnNext.TabIndex = 22;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnPreviows
+            // 
+            this.btnPreviows.Location = new System.Drawing.Point(269, 374);
+            this.btnPreviows.Name = "btnPreviows";
+            this.btnPreviows.Size = new System.Drawing.Size(100, 33);
+            this.btnPreviows.TabIndex = 21;
+            this.btnPreviows.Text = "Previows";
+            this.btnPreviows.UseVisualStyleBackColor = true;
+            this.btnPreviows.Click += new System.EventHandler(this.btnPreviows_Click);
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(124, 374);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(85, 33);
+            this.btnFirst.TabIndex = 20;
+            this.btnFirst.Text = "first";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnUpdateDataBase
             // 
@@ -237,46 +277,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Code";
             // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(124, 374);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(85, 33);
-            this.btnFirst.TabIndex = 20;
-            this.btnFirst.Text = "first";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
-            // btnPreviows
-            // 
-            this.btnPreviows.Location = new System.Drawing.Point(269, 374);
-            this.btnPreviows.Name = "btnPreviows";
-            this.btnPreviows.Size = new System.Drawing.Size(100, 33);
-            this.btnPreviows.TabIndex = 21;
-            this.btnPreviows.Text = "Previows";
-            this.btnPreviows.UseVisualStyleBackColor = true;
-            this.btnPreviows.Click += new System.EventHandler(this.btnPreviows_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(414, 374);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(85, 33);
-            this.btnNext.TabIndex = 22;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnLast
-            // 
-            this.btnLast.Location = new System.Drawing.Point(559, 374);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(85, 33);
-            this.btnLast.TabIndex = 23;
-            this.btnLast.Text = "Last";
-            this.btnLast.UseVisualStyleBackColor = true;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
-            // 
             // Gestion_des_Medecins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -303,8 +303,6 @@
         private System.Windows.Forms.Button btnSupprimer;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnRecherche;
-        private System.Windows.Forms.Button btnNouveau;
         private System.Windows.Forms.ComboBox CbSpecialite;
         private System.Windows.Forms.DateTimePicker dateEmb;
         private System.Windows.Forms.MaskedTextBox textTel;
@@ -313,12 +311,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textNOm;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textcode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnUpdateDataBase;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPreviows;
         private System.Windows.Forms.Button btnFirst;
+        public System.Windows.Forms.Button btnRecherche;
+        public System.Windows.Forms.TextBox textcode;
+        public System.Windows.Forms.Button btnNouveau;
     }
 }

@@ -51,7 +51,7 @@
             this.quitterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(913, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(922, 34);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -116,6 +116,7 @@
             this.afficherLesRDVDunPatientToolStripMenuItem.Name = "afficherLesRDVDunPatientToolStripMenuItem";
             this.afficherLesRDVDunPatientToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
             this.afficherLesRDVDunPatientToolStripMenuItem.Text = "Afficher les RDV d\'un patient";
+            this.afficherLesRDVDunPatientToolStripMenuItem.Click += new System.EventHandler(this.afficherLesRDVDunPatientToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 600);
+            this.ClientSize = new System.Drawing.Size(922, 745);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

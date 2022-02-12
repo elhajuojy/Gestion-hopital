@@ -29,6 +29,8 @@ namespace Gestion_hopital
             cbCodeMedecin.DataSource = db.medecins.Select(m => m.codemedcin).ToList();
             cbCodePatient.DataSource = db.patients.Select(p => p.codepatient).ToList();
 
+
+
         }
 
         private void cbCodePatient_SelectionChangeCommitted(object sender, EventArgs e)

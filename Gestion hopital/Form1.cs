@@ -72,5 +72,13 @@ namespace Gestion_hopital
             RechercheRDVFrm.Dock = DockStyle.Fill;
             RechercheRDVFrm.Show();
         }
+
+        private void afficherLesRDVDunPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Afficher_les_RDV_d_un_patient frmAfficherLesRDVPatient = new Afficher_les_RDV_d_un_patient();
+            frmAfficherLesRDVPatient.MdiParent = this;
+            frmAfficherLesRDVPatient.Dock = DockStyle.Fill;
+            frmAfficherLesRDVPatient.Show();
+        }
     }
 }

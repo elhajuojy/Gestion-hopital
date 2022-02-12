@@ -109,6 +109,7 @@
             this.rechercheRDVParDateToolStripMenuItem.Name = "rechercheRDVParDateToolStripMenuItem";
             this.rechercheRDVParDateToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
             this.rechercheRDVParDateToolStripMenuItem.Text = "Recherche RDV par date";
+            this.rechercheRDVParDateToolStripMenuItem.Click += new System.EventHandler(this.rechercheRDVParDateToolStripMenuItem_Click);
             // 
             // afficherLesRDVDunPatientToolStripMenuItem
             // 

@@ -33,7 +33,6 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPreviows = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
-            this.btnUpdateDataBase = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
@@ -50,11 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnUpdateDataBase = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnLast);
             this.groupBox1.Controls.Add(this.btnNext);
             this.groupBox1.Controls.Add(this.btnPreviows);
@@ -124,16 +126,6 @@
             this.btnFirst.Text = "first";
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
-            // btnUpdateDataBase
-            // 
-            this.btnUpdateDataBase.Location = new System.Drawing.Point(615, 319);
-            this.btnUpdateDataBase.Name = "btnUpdateDataBase";
-            this.btnUpdateDataBase.Size = new System.Drawing.Size(139, 33);
-            this.btnUpdateDataBase.TabIndex = 19;
-            this.btnUpdateDataBase.Text = "Save to Db";
-            this.btnUpdateDataBase.UseVisualStyleBackColor = true;
-            this.btnUpdateDataBase.Click += new System.EventHandler(this.btnUpdateDataBase_Click);
             // 
             // btnQuitter
             // 
@@ -277,6 +269,26 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Code";
             // 
+            // btnUpdateDataBase
+            // 
+            this.btnUpdateDataBase.Location = new System.Drawing.Point(615, 319);
+            this.btnUpdateDataBase.Name = "btnUpdateDataBase";
+            this.btnUpdateDataBase.Size = new System.Drawing.Size(139, 33);
+            this.btnUpdateDataBase.TabIndex = 19;
+            this.btnUpdateDataBase.Text = "Save to Db";
+            this.btnUpdateDataBase.UseVisualStyleBackColor = true;
+            this.btnUpdateDataBase.Click += new System.EventHandler(this.btnUpdateDataBase_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(606, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 33);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Save to Db";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Gestion_des_Medecins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,7 +324,6 @@
         private System.Windows.Forms.TextBox textNOm;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdateDataBase;
         private System.Windows.Forms.Button btnLast;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPreviows;
@@ -320,5 +331,7 @@
         public System.Windows.Forms.Button btnRecherche;
         public System.Windows.Forms.TextBox textcode;
         public System.Windows.Forms.Button btnNouveau;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdateDataBase;
     }
 }

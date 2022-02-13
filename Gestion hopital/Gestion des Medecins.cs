@@ -353,6 +353,10 @@ namespace Gestion_hopital
 
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataSet1 ds = new DataSet1();
+            
+        }
     }
 }
